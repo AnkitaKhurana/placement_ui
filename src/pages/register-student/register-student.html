@@ -1,0 +1,40 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Register Student</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<ion-list>
+    <ion-toolbar>
+      <ion-title>Registered Students</ion-title>
+    </ion-toolbar>
+    <button ion-item *ngFor="let student of students">
+      {{ student }}
+    </button>  
+  </ion-list>	
+  <ion-list center>
+   <ion-toolbar>
+    <ion-title>Register Student</ion-title>
+  </ion-toolbar>
+  <ion-item>
+    <ion-label fixed>Name</ion-label>
+    <ion-input type="text" value=""></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label fixed>Year</ion-label>
+    <ion-input type="text"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label fixed>Percentage</ion-label>
+    <ion-input type="number"></ion-input>
+  </ion-item>
+</ion-list>
+
+<button ion-button>Submit</button>
+</ion-content>

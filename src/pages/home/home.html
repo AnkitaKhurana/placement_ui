@@ -1,14 +1,16 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar text-center>
     <ion-title>
-      Ionic Blank
+      Placement App
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
+<ion-content padding >
   <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
+  	<button ion-button block (click)="loadManageStudent()" ><ion-icon name="person" padding-horizontal></ion-icon> Manage Students</button>
+  </p>
+   <p>
+  	<button ion-button block (click)="loadManageCompany()"><ion-icon name="briefcase" padding-horizontal></ion-icon>  Manage Companies</button>
   </p>
 </ion-content>
