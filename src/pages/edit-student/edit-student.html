@@ -7,23 +7,39 @@
 </ion-header>
 
 <ion-content padding>
-<ion-list center>
+  <form (ngSubmit)="onEditStudent(f1.value)" #f1="ngForm">
 
-  <ion-item>
-    <ion-label fixed>Name</ion-label>
-    <ion-input type="text" value="something"></ion-input>
-  </ion-item>
+    <ion-list center>
 
-  <ion-item>
-    <ion-label fixed>Year</ion-label>
-    <ion-input type="text" value="something"></ion-input>
-  </ion-item>
+      <ion-item>
+        <ion-label  fixed >Name</ion-label>
+        <ion-input name="name" [(ngModel)]="name" type="text" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label  fixed>Department</ion-label>
+        <ion-input name="department" [(ngModel)]="department" type="text" value=""></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed >Roll Number</ion-label>
+        <ion-input [readonly]="!userSessionStarted" name="rollno" [(ngModel)]="rollno" type="number" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed >CGPA</ion-label>
+        <ion-input name="cgpa" [(ngModel)]="cgpa" type="number" required></ion-input>
+      </ion-item>
+    </ion-list>
 
-  <ion-item>
-    <ion-label fixed>Percentage</ion-label>
-    <ion-input type="number" value="23"></ion-input>
-  </ion-item>
-</ion-list>
+    <button type="submit" [disabled]="!f1.valid" ion-button>Submit</button>
+  </form>
+  <ion-card>
 
-<button ion-button>Submit</button>
+    <ion-card-header>
+      Companies Registered 
+    </ion-card-header>
+
+    <ion-card-content *ngFor="let company of companies">
+      {{company}}
+    </ion-card-content>
+
+  </ion-card>
 </ion-content>

@@ -13,7 +13,7 @@
     <ion-title>Registered Students</ion-title>
   </ion-toolbar>
   <button ion-item *ngFor="let student of students" (click)="studentSelected(student)">
-    {{ student }}
+    {{ student.name }}
   </button>  
 </ion-list>	
  <p>

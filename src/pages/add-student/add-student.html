@@ -8,23 +8,28 @@
 
 
 <ion-content padding>
-<ion-list center>
+  <form (ngSubmit)="onAddStudent(f.value)" #f="ngForm">
+    <ion-list center>
 
-  <ion-item>
-    <ion-label fixed>Name</ion-label>
-    <ion-input type="text" value=""></ion-input>
-  </ion-item>
+      <ion-item>
+        <ion-label  fixed >Name</ion-label>
+        <ion-input name="name" [(ngModel)]="name" type="text" value="" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label  fixed>Department</ion-label>
+        <ion-input name="department" [(ngModel)]="department" type="text" value=""></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed >Roll Number</ion-label>
+        <ion-input name="rollno" [(ngModel)]="rollno" type="number" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed >CGPA</ion-label>
+        <ion-input name="cgpa" [(ngModel)]="cgpa" type="number" required></ion-input>
+      </ion-item>
+    </ion-list>
 
-  <ion-item>
-    <ion-label fixed>Year</ion-label>
-    <ion-input type="text"></ion-input>
-  </ion-item>
 
-  <ion-item>
-    <ion-label fixed>Percentage</ion-label>
-    <ion-input type="number"></ion-input>
-  </ion-item>
-</ion-list>
-
-<button ion-button>Submit</button>
+    <button type="submit" [disabled]="!f.valid" ion-button>Submit</button>
+  </form>
 </ion-content>
