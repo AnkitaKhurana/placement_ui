@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { RegisterStudentPage } from '../register-student/register-student';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { ToastController } from 'ionic-angular';
@@ -22,7 +21,7 @@ export class EditCompanyPage {
   role:string;
   studentsRequired:number;
   package:number;
-  students =['No Student Registered Yet'];
+  students =[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public httpClient: HttpClient,public toastCtrl: ToastController) {
   }
@@ -33,13 +32,12 @@ export class EditCompanyPage {
      this.studentsRequired = this.navParams.get('data').studentsRequired;
      this.package = this.navParams.get('data').package;
      if(this.navParams.get('data').studentsRegistered.length>0)
-     this.students = this.navParams.get('data').studentsRegistered;     
+     this.students = this.returnStudentNames(this.navParams.get('data').studentsRegistered);
+     else
+     this.students =['No Student Registered Yet'];
    }
   ionViewDidLoad() {
     console.log('ionViewDidLoad EditCompanyPage');
-  }
-  loadRegisterStudent(){
-    this.navCtrl.push(RegisterStudentPage);
   }
   onEditCompany(value : {c_id:number, name:string, role:string,studentsRequired:number,package:number}){
      const httpOptions = {
@@ -61,5 +59,13 @@ export class EditCompanyPage {
        }
        );
        this.navCtrl.pop();    
+   }
+   returnStudentNames(objectIds){
+     var s =[];
+     for(let i in objectIds)
+     {        this.httpClient.get('http://localhost:3456/api/student/object/'+objectIds[i])
+    .subscribe(res => s.push(res.name))
+     }
+     return s;
    }
 }

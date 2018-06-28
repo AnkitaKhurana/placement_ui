@@ -17,7 +17,7 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: 'company.html',
 })
 export class CompanyPage {
-  companies = [];
+  companies = [''];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public httpClient: HttpClient) {
   }

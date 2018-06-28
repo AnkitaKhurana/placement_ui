@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { ToastController } from 'ionic-angular';
+import { RegisterStudentPage } from '../register-student/register-student';
 
 /**
  * Generated class for the EditStudentPage page.
@@ -21,7 +22,7 @@ import { ToastController } from 'ionic-angular';
    name : string;
    department: string;
    cgpa : number;
-   companies = ['No Company Registered Yet'];
+   companies = [];
    constructor(public navCtrl: NavController, public navParams: NavParams, public httpClient: HttpClient,public toastCtrl: ToastController) {
    }
    ionViewWillEnter(){
@@ -30,7 +31,9 @@ import { ToastController } from 'ionic-angular';
      this.department = this.navParams.get('data').department;
      this.cgpa = this.navParams.get('data').cgpa;
      if(this.navParams.get('data').companiesRegistered.length>0)
-     this.companies = this.navParams.get('data').companiesRegistered;     
+     this.companies = this.returnCompanyNames(this.navParams.get('data').companiesRegistered); 
+     else 
+     this.companies = ['Student not yet Registered for any Company'];
    }
    ionViewDidLoad() {
      console.log('ionViewDidLoad EditStudentPage');
@@ -56,4 +59,16 @@ import { ToastController } from 'ionic-angular';
        );
        this.navCtrl.pop();    
    }
+   registerToCompany(){
+         this.navCtrl.push(RegisterStudentPage,{rollno:this.rollno});
+   }
+   returnCompanyNames(objectIds){
+     var c =[];
+     for(let i in objectIds)
+     {        this.httpClient.get('http://localhost:3456/api/company/object/'+objectIds[i])
+    .subscribe(res => c.push(res.name))
+     }
+     return c;
+   }
+
  }
