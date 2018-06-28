@@ -1,30 +1,49 @@
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar center>
     <ion-title>Edit Company</ion-title>
   </ion-navbar>
 
 </ion-header>
 
+
 <ion-content padding>
-<ion-list center>
+  <form (ngSubmit)="onEditCompany(fc1.value)" #fc1="ngForm">
+    <ion-list center>
+      <ion-item>
+        <ion-label  fixed >Company ID</ion-label>
+        <ion-input [readonly]="!userSessionStarted" name="c_id" [(ngModel)]="c_id" type="number" value="" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label  fixed >Name</ion-label>
+        <ion-input name="name" [(ngModel)]="name" type="text" value="" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label  fixed>Students Required</ion-label>
+        <ion-input name="studentsRequired" [(ngModel)]="studentsRequired" type="number" value=""></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed >Role</ion-label>
+        <ion-input name="role" [(ngModel)]="role" type="text" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed >Package</ion-label>
+        <ion-input name="package" [(ngModel)]="package" type="number" required></ion-input>
+      </ion-item>
+    </ion-list>
 
-  <ion-item>
-    <ion-label fixed>Name</ion-label>
-    <ion-input type="text" value="something"></ion-input>
-  </ion-item>
 
-  <ion-item>
-    <ion-label fixed>Role</ion-label>
-    <ion-input type="text" value="something"></ion-input>
-  </ion-item>
+    <button type="submit" [disabled]="!fc1.valid" ion-button>Submit</button>
+  </form>
+   <ion-card>
 
-  <ion-item>
-    <ion-label fixed>Package</ion-label>
-    <ion-input type="number" value="23"></ion-input>
-  </ion-item>
-</ion-list>
-<button ion-button (click)="loadRegisterStudent()">Register Student</button>
+    <ion-card-header>
+      Students Registered 
+    </ion-card-header>
 
-<button ion-button>Submit</button>
+    <ion-card-content *ngFor="let studnet of studnets">
+      {{student}}
+    </ion-card-content>
+
+  </ion-card>
 </ion-content>

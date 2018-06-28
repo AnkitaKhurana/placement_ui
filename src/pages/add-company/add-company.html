@@ -1,31 +1,38 @@
-<ion-header center>
+<ion-header>
 
-  <ion-navbar>
+  <ion-navbar center>
     <ion-title>Add Company</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-
 <ion-content padding>
-<ion-list center>
+  <form (ngSubmit)="onAddCompany(fc.value)" #fc="ngForm">
+    <ion-list center>
+      <ion-item>
+        <ion-label  fixed >Company ID</ion-label>
+        <ion-input name="c_id" [(ngModel)]="c_id" type="number" value="" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label  fixed >Name</ion-label>
+        <ion-input name="name" [(ngModel)]="name" type="text" value="" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label  fixed>Students Required</ion-label>
+        <ion-input name="studentsRequired" [(ngModel)]="studentsRequired" type="number" value=""></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed >Role</ion-label>
+        <ion-input name="role" [(ngModel)]="role" type="text" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed >Package</ion-label>
+        <ion-input name="package" [(ngModel)]="package" type="number" required></ion-input>
+      </ion-item>
+    </ion-list>
 
-  <ion-item>
-    <ion-label fixed>Name</ion-label>
-    <ion-input type="text" value=""></ion-input>
-  </ion-item>
 
-  <ion-item>
-    <ion-label fixed>Role</ion-label>
-    <ion-input type="text"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label fixed>Package</ion-label>
-    <ion-input type="number"></ion-input>
-  </ion-item>
-</ion-list>
-
-<button ion-button>Submit</button>
+    <button type="submit" [disabled]="!fc.valid" ion-button>Submit</button>
+  </form>
 </ion-content>

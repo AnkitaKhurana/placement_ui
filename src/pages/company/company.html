@@ -13,7 +13,7 @@
     <ion-title>Registered Companies</ion-title>
   </ion-toolbar>
   <button ion-item *ngFor="let company of companies" (click)="companySelected(company)">
-    {{ company }}
+    {{ company.name }}
   </button>  
 </ion-list>	
  <p>
