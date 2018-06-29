@@ -10,7 +10,7 @@ import { CompanyPage } from '../company/company';
 export class HomePage {
 
   constructor(public navCtrl: NavController) {
- 	
+    
   }
   loadManageStudent(){
   	this.navCtrl.push(StudentPage);

@@ -10,16 +10,16 @@
 <ion-content padding>
 	<ion-list>
     <ion-toolbar>
-    <ion-title>Companies</ion-title>
-  </ion-toolbar>
+      <ion-title>Companies</ion-title>
+    </ion-toolbar>
 
-  <ion-item ion-item *ngFor="let company of allCompanies" >
-  <ion-label>{{ company.name }}</ion-label>
-  <ion-checkbox (ionChange)="addToList($event,company)" color="dark" checked="false"></ion-checkbox>
-</ion-item>
+    <ion-item ion-item *ngFor="let company of allCompanies" >
+      <ion-label>{{ company.name }}</ion-label>
+      <ion-checkbox (ionChange)="addToList($event,company)" color="dark" checked="false"></ion-checkbox>
+    </ion-item>
 
-  <button ion-button block (click)="register()">
-    Register
-  </button>  
-</ion-list> 
+    <button ion-button block (click)="register()">
+      Register
+    </button>  
+  </ion-list> 
 </ion-content>

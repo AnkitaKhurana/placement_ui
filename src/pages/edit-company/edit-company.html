@@ -1,12 +1,8 @@
 <ion-header>
-
   <ion-navbar center>
     <ion-title>Edit Company</ion-title>
   </ion-navbar>
-
 </ion-header>
-
-
 <ion-content padding>
   <form (ngSubmit)="onEditCompany(fc1.value)" #fc1="ngForm">
     <ion-list center>
@@ -31,12 +27,9 @@
         <ion-input name="package" [(ngModel)]="package" type="number" required></ion-input>
       </ion-item>
     </ion-list>
-
-
-    <button type="submit" [disabled]="!fc1.valid" ion-button>Submit</button>
+    <button type="submit" block [disabled]="!fc1.valid" ion-button>Submit</button>
   </form>
-   <ion-card>
-
+  <ion-card>
     <ion-card-header>
       Students Registered 
     </ion-card-header>

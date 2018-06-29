@@ -8,15 +8,15 @@
 
 
 <ion-content padding>
-<ion-list>
+  <ion-list>
     <ion-toolbar>
-    <ion-title>Registered Companies</ion-title>
-  </ion-toolbar>
-  <button ion-item *ngFor="let company of companies" (click)="companySelected(company)">
-    {{ company.name }}
-  </button>  
-</ion-list>	
- <p>
-  	<button ion-button block (click)="loadAddCompany()" ><ion-icon name="person-add" padding-horizontal></ion-icon> Register Company </button>
+      <ion-title>Registered Companies</ion-title>
+    </ion-toolbar>
+    <button ion-item *ngFor="let company of companies" (click)="companySelected(company)">
+      {{ company.name }}
+    </button>  
+  </ion-list>	
+  <p>
+  	<button ion-button block (click)="loadAddCompany()" ><ion-icon name="add-circle" padding-horizontal></ion-icon> Register Company </button>
   </p>
 </ion-content>

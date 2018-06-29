@@ -4,13 +4,6 @@ import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { ToastController } from 'ionic-angular';
 
-/**
- * Generated class for the AddCompanyPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-add-company',
@@ -45,7 +38,6 @@ export class AddCompanyPage {
          toast.present();
        },
        );
-     
   }
 
 }

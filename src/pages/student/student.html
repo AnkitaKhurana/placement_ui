@@ -8,15 +8,15 @@
 
 
 <ion-content padding>
-<ion-list>
+  <ion-list>
     <ion-toolbar>
-    <ion-title>Registered Students</ion-title>
-  </ion-toolbar>
-  <button ion-item *ngFor="let student of students" (click)="studentSelected(student)">
-    {{ student.name }}
-  </button>  
-</ion-list>	
- <p>
+      <ion-title>Registered Students</ion-title>
+    </ion-toolbar>
+    <button ion-item *ngFor="let student of students" (click)="studentSelected(student)">
+      {{ student.name }}
+    </button>  
+  </ion-list>	
+  <p>
   	<button ion-button block (click)="loadAddStudent()" ><ion-icon name="person-add" padding-horizontal></ion-icon> Add New Student</button>
   </p>
 </ion-content>
